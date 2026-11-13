@@ -782,6 +782,22 @@ html.js .ph-item.stag.done{transition:opacity .8s ease,transform .7s cubic-bezie
 .stat,.stats>div,.three>div,.spec,.crow{transition:border-color .5s ease,background-color .5s ease}
 @media (hover:hover) and (pointer:fine){.stat:hover,.stats>div:hover,.three>div:hover{border-color:rgba(255,236,220,.22);background-color:rgba(255,236,220,.055)}}
 .tilt::before{display:none!important}
+
+/* ===== Calm button hovers: no colour flip, gentle glow + lift ===== */
+.btn,.hero-go,.li-btn,.mp-btn,.gc-nav button,.icon-btn{transition:transform .6s cubic-bezier(.22,1,.36,1),background-color .6s ease,border-color .6s ease,box-shadow .6s ease,color .6s ease!important}
+.btn:hover{background:#FF6A33;color:var(--ink);transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,90,31,.32)}
+.btn:active{transform:translateY(0) scale(.98)}
+.hero-go:hover{background:rgba(11,10,9,.7);color:var(--fg);border-color:rgba(255,236,220,.4);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.hero-go .gi{transition:transform .6s cubic-bezier(.22,1,.36,1),box-shadow .6s ease}
+.hero-go:hover .gi{transform:translateY(2px);box-shadow:0 0 0 6px rgba(255,90,31,.18)}
+.hero-go:hover .gi svg{animation-play-state:paused}
+.js .hero.ready .hero-go:hover{transform:translateY(-2px)}
+.ghost:hover{border-color:rgba(255,236,220,.45);color:var(--fg);background:rgba(255,236,220,.05);transform:translateY(-2px)}
+.ph-more button:hover,.gc-nav button:hover:not(:disabled){background:rgba(255,236,220,.08);border-color:rgba(255,236,220,.45);color:var(--fg);transform:translateY(-2px)}
+.mp-btn:hover{background:#fff}
+.icon-btn:not(.li):hover{background:rgba(255,236,220,.12);color:var(--fg);border-color:rgba(255,236,220,.45)}
+.icon-btn.li:hover{background:#0B78E3}
+footer .flinks a[href="#top"]:hover{background:rgba(255,236,220,.12);border-color:rgba(255,236,220,.45);color:var(--fg)}
 </style>
 <script data-own="">document.documentElement.classList.add('js')</script>
 <div class="ambient" id="ambient" aria-hidden="true"><div class="mist m1"></div><div class="mist m2"></div><div class="mist m3"></div><div class="a1" id="amb1"></div><div class="a2" id="amb2"></div></div>
