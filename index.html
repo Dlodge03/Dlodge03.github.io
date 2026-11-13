@@ -766,6 +766,22 @@ h1,h2,h3,h4,.logo,.mm-link,.dd-item b,.stat b,.stats b,.pf b,.btile .more,.mp-me
 .name,.statement h2,.head h2,.about h2,.bgrid h2,.outro .big{letter-spacing:-.02em}
 .case h3,.soc h3,.gbar h3,.film .fmeta h3,.rz-body h3,.sent h3{letter-spacing:-.015em}
 .hero-go,.ph-more button,.menu-btn,.copy em{font-weight:500}
+
+/* ===== Smooth hovers (replaces tilt + magnetic pull) ===== */
+.ph-item,.gc-track .hitem,.pf .hitem,.btile,.reel{transition:transform .7s cubic-bezier(.22,1,.36,1),box-shadow .7s cubic-bezier(.22,1,.36,1)}
+html.js .ph-item.stag.done{transition:opacity .8s ease,transform .7s cubic-bezier(.22,1,.36,1),box-shadow .7s cubic-bezier(.22,1,.36,1)}
+.ph-item img,.gc-track .hitem img,.pimg img,.btile img{transition:transform 1.2s cubic-bezier(.22,1,.36,1)!important}
+@media (hover:hover) and (pointer:fine){
+  .ph-item:hover,.gc-track .hitem:hover,.pf .hitem:hover,.btile:hover{transform:translateY(-6px)}
+  .ph-item:hover img,.gc-track .hitem:hover img,.pimg:hover img,.btile:hover img{transform:scale(1.035)}
+  .ph-item:hover{box-shadow:0 24px 50px rgba(0,0,0,.45)}
+  html.js .ph-item.stag.shown:hover,html.js .gcard.stag.shown .hitem:hover{transform:translateY(-6px)}
+}
+.btn,.ghost,.li-btn,.icon-btn,.hero-go,.gc-nav button,.ph-more button,.chip,.mp-btn,.menu-btn{transition:transform .5s cubic-bezier(.22,1,.36,1),background-color .35s ease,border-color .35s ease,color .35s ease,box-shadow .5s ease!important}
+@media (hover:hover) and (pointer:fine){.btn:hover,.ghost:hover,.chip:hover,.gc-nav button:hover:not(:disabled),.ph-more button:hover{transform:translateY(-2px)}}
+.stat,.stats>div,.three>div,.spec,.crow{transition:border-color .5s ease,background-color .5s ease}
+@media (hover:hover) and (pointer:fine){.stat:hover,.stats>div:hover,.three>div:hover{border-color:rgba(255,236,220,.22);background-color:rgba(255,236,220,.055)}}
+.tilt::before{display:none!important}
 </style>
 <script data-own="">document.documentElement.classList.add('js')</script>
 <div class="ambient" id="ambient" aria-hidden="true"><div class="mist m1"></div><div class="mist m2"></div><div class="mist m3"></div><div class="a1" id="amb1"></div><div class="a2" id="amb2"></div></div>
@@ -1402,17 +1418,7 @@ hideEmpty();
   }
 
   if(!fine||reduce) return;
-  /* magnetic buttons */
-  document.querySelectorAll('.hero-go, .btn, .li-btn, .icon-btn, .gc-nav button, .ph-more button, .ghost').forEach(b=>{b.classList.add('mag');
-    b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect(); const x=(e.clientX-r.left-r.width/2), y=(e.clientY-r.top-r.height/2); b.style.translate=`${x*0.22}px ${y*0.3}px`;});
-    b.addEventListener('mouseleave',()=>{b.style.translate=''});});
-  /* tilt + sheen */
-  const tiltOn=el=>{ if(el._t) return; el._t=1; el.classList.add('tilt');
-    el.addEventListener('mousemove',e=>{ if(el.classList.contains('stag')&&!el.classList.contains('done')) return; const r=el.getBoundingClientRect(); const px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
-      el.classList.add('live'); el.style.transform=`perspective(900px) rotateX(${(0.5-py)*3}deg) rotateY(${(px-0.5)*4}deg) translateZ(0)`; el.style.setProperty('--mx',px*100+'%'); el.style.setProperty('--my',py*100+'%');});
-    el.addEventListener('mouseleave',()=>{el.classList.remove('live'); el.style.transform='';});};
-  const tiltAll=()=>document.querySelectorAll('.ph-item, .gc-track .hitem').forEach(tiltOn);
-  tiltAll(); new MutationObserver(tiltAll).observe(phGrid,{childList:true});
+  /* (cursor-following tilt and magnetic pull removed for a calmer hover) */
 })();
 
 
