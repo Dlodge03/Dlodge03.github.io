@@ -799,37 +799,27 @@ html.js .ph-item.stag.done{transition:opacity .8s ease,transform .7s cubic-bezie
 .icon-btn.li:hover{background:#0B78E3}
 footer .flinks a[href="#top"]:hover{background:rgba(255,236,220,.12);border-color:rgba(255,236,220,.45);color:var(--fg)}
 
-/* ===== Tools & Skills ===== */
-.tools{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px;perspective:1100px}
-.tool{position:relative;aspect-ratio:1;outline:none;cursor:default}
+
+/* ===== Tools I use (in About) ===== */
+.toolkit{margin-top:72px;padding-top:36px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:28px}
+.toolkit>.label{color:var(--muted)}
+.tools{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:18px 14px;perspective:900px}
+.tool{display:flex;flex-direction:column;align-items:center;gap:14px;outline:none;cursor:default;min-width:0}
+.tool-3d{position:relative;width:min(84px,100%);aspect-ratio:1}
+.tool-3d::after{content:"";position:absolute;left:14%;right:14%;bottom:-12px;height:10px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.6),rgba(0,0,0,0) 70%);filter:blur(3px)}
 .tool-spin{position:absolute;inset:0;transform-style:preserve-3d}
-.tool-face{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:16px;text-align:center;
-  background:linear-gradient(150deg,rgba(255,236,220,.10),rgba(255,236,220,.02) 45%,rgba(11,10,9,.6)),#171412;border:1px solid rgba(255,236,220,.14);box-shadow:inset 0 1px 0 rgba(255,236,220,.12),0 24px 50px rgba(0,0,0,.45)}
-.tool-face.front{transform:translateZ(7px)}
-.tool-face.back{transform:rotateY(180deg) translateZ(7px)}
-.tool-face svg{width:44%;height:auto;fill:none;stroke:var(--fg);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 6px 14px rgba(255,90,31,.25))}
-.tool-face svg .ac{stroke:var(--orange)}
-.tool-face svg .ac.fill{fill:var(--orange)}
-.tool-face b{font-family:var(--sans);font-weight:500;font-size:13px;line-height:1.25;color:var(--fg);letter-spacing:.01em}
-.tool-face .use{display:block;max-height:0;opacity:0;overflow:hidden;font-size:12px;line-height:1.4;color:var(--value);margin-top:-6px;transition:max-height .6s cubic-bezier(.22,1,.36,1),opacity .5s ease,margin .6s ease}
-.tool-face svg{transition:width .6s cubic-bezier(.22,1,.36,1)}
-.tool.on .tool-face.front svg{width:30%}
-.tool.on .tool-face .use{max-height:60px;opacity:1;margin-top:0}
-.tool.on .tool-face.front{border-color:rgba(255,90,31,.4)}
+.tool-face{position:absolute;inset:0;border-radius:24%;background:var(--bg);display:grid;place-items:center;transform:translateZ(6px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.tool-face.back{transform:rotateY(180deg) translateZ(6px)}
+.tool-face svg{width:56%;height:auto;fill:none;stroke:var(--st);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.tool-face svg .s1{stroke:var(--a1)}
+.tool-face svg .f1{fill:var(--a1);stroke:none}.tool-face svg .f2{fill:var(--a2,var(--a1));stroke:none}.tool-face svg .f3{fill:var(--a3,var(--a1));stroke:none}.tool-face svg .f4{fill:var(--a4,var(--a1));stroke:none}
 .tool-edge,.tool-edge i{position:absolute;inset:0;transform-style:preserve-3d}
-.tool-edge i{border-radius:22px;background:linear-gradient(160deg,#3a2a20,#1a1411);transform:translateZ(var(--z));border:1px solid rgba(255,140,80,.18)}
-.tool::after{content:"";position:absolute;left:12%;right:12%;bottom:-18px;height:14px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.55),rgba(0,0,0,0) 70%);filter:blur(4px);pointer-events:none}
-.skillrows{display:flex;flex-direction:column;gap:18px;margin-top:64px;padding-top:32px;border-top:1px solid var(--line)}
-.skillrow{display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:20px}
-.skillrow .label{color:var(--muted)}
-.pills{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.pills li{height:38px;display:inline-flex;align-items:center;padding:0 16px;border-radius:999px;border:1px solid var(--field);color:var(--value);font-size:14px;background:rgba(255,236,220,.03);transition:border-color .5s ease,background-color .5s ease,color .5s ease}
-.skillrow:first-child .pills li{border-color:rgba(255,90,31,.35);color:var(--fg)}
-@media (hover:hover) and (pointer:fine){.pills li:hover{border-color:rgba(255,236,220,.45);background:rgba(255,236,220,.06)}}
-@media (max-width:1100px){.tools{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media (max-width:820px){.tools{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.tool-face{border-radius:18px;gap:8px;padding:8px}.tool-edge i{border-radius:18px}.tool-face b{font-size:11px}.tool-face .use{font-size:10.5px}.tool.on .tool-face.front svg{width:26%}}
-@media (max-width:720px){.skillrow{grid-template-columns:minmax(0,1fr);gap:10px}.skillrows{margin-top:48px}.pills li{height:34px;font-size:13px;padding:0 13px}}
-@media (max-width:380px){.tools{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tool-edge i{border-radius:24%;background:var(--edge);transform:translateZ(var(--z))}
+.tool-name{font-family:var(--sans);font-weight:500;font-size:12px;line-height:1.3;color:var(--soft);text-align:center;transition:color .4s ease}
+.tool.on .tool-name{color:var(--fg)}
+@media (max-width:1100px){.tools{grid-template-columns:repeat(5,minmax(0,1fr));gap:28px 14px}}
+@media (max-width:720px){.toolkit{margin-top:48px;padding-top:28px}.tools{gap:22px 10px}.tool-3d{width:min(60px,100%)}.tool-name{font-size:10.5px}.tool{gap:10px}}
+@media (max-width:380px){.tools{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style>
 <script data-own="">document.documentElement.classList.add('js')</script>
 <div class="ambient" id="ambient" aria-hidden="true"><div class="mist m1"></div><div class="mist m2"></div><div class="mist m3"></div><div class="a1" id="amb1"></div><div class="a2" id="amb2"></div></div>
@@ -917,27 +907,14 @@ footer .flinks a[href="#top"]:hover{background:rgba(255,236,220,.12);border-colo
         <div class="about-cta"><a class="li-btn" href="https://www.linkedin.com/in/devonte-lodge" target="_blank" rel="noopener"><svg class="li-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>Connect on LinkedIn</a><a class="ghost label" href="Devonte-Lodge-Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a></div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="block" id="skills">
-  <div class="wrap">
-    <div class="head">
-      <div><div class="eyebrow label">02 — Toolkit</div><h2>Tools &amp; Skills<span class="dot">.</span></h2></div>
-      <div class="desc"><p>The software I create with every week, and the skills behind the work.</p></div>
-    </div>
-    <ul class="tools" id="tools"><li class="tool" style="--i:0" tabindex="0" aria-label="Canva: Social graphics, flyers & email visuals"><div class="tool-spin"><div class="tool-edge"><i style="--z:-6px"></i><i style="--z:-4px"></i><i style="--z:-2px"></i><i style="--z:0px"></i><i style="--z:2px"></i><i style="--z:4px"></i><i style="--z:6px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="9" cy="9" r="2.5" class="ac"/><path d="M14 8h4M14 12h4M6 16h12"/></svg><b>Canva</b><span class="use">Social graphics, flyers & email visuals</span></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="9" cy="9" r="2.5" class="ac"/><path d="M14 8h4M14 12h4M6 16h12"/></svg><b>Canva</b></div></div></li><li class="tool" style="--i:1" tabindex="0" aria-label="Adobe Photoshop: Retouching & photo composites"><div class="tool-spin"><div class="tool-edge"><i style="--z:-6px"></i><i style="--z:-4px"></i><i style="--z:-2px"></i><i style="--z:0px"></i><i style="--z:2px"></i><i style="--z:4px"></i><i style="--z:6px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12.5l9 5 9-5" /><path d="M3 17l9 5 9-5" class="ac"/></svg><b>Adobe Photoshop</b><span class="use">Retouching & photo composites</span></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12.5l9 5 9-5" /><path d="M3 17l9 5 9-5" class="ac"/></svg><b>Adobe Photoshop</b></div></div></li><li class="tool" style="--i:2" tabindex="0" aria-label="Adobe Lightroom: Editing & color-grading photos"><div class="tool-spin"><div class="tool-edge"><i style="--z:-6px"></i><i style="--z:-4px"></i><i style="--z:-2px"></i><i style="--z:0px"></i><i style="--z:2px"></i><i style="--z:4px"></i><i style="--z:6px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3l3.5 7.5M21 12l-8 1M16.5 19.8L11 13.5M7.5 19.8l3-7M3 12h8M7.5 4.2l4 7" /><circle cx="12" cy="12" r="2.2" class="ac"/></svg><b>Adobe Lightroom</b><span class="use">Editing & color-grading photos</span></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3l3.5 7.5M21 12l-8 1M16.5 19.8L11 13.5M7.5 19.8l3-7M3 12h8M7.5 4.2l4 7" /><circle cx="12" cy="12" r="2.2" class="ac"/></svg><b>Adobe Lightroom</b></div></div></li><li class="tool" style="--i:3" tabindex="0" aria-label="CapCut: Reels & short-form video edits"><div class="tool-spin"><div class="tool-edge"><i style="--z:-6px"></i><i style="--z:-4px"></i><i style="--z:-2px"></i><i style="--z:0px"></i><i style="--z:2px"></i><i style="--z:4px"></i><i style="--z:6px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 9h18M3 15h18M7 5v4M12 5v4M17 5v4M7 15v4M12 15v4M17 15v4"/><path d="M9.5 10.5l5 1.5-5 1.5z" class="ac fill"/></svg><b>CapCut</b><span class="use">Reels & short-form video edits</span></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 9h18M3 15h18M7 5v4M12 5v4M17 5v4M7 15v4M12 15v4M17 15v4"/><path d="M9.5 10.5l5 1.5-5 1.5z" class="ac fill"/></svg><b>CapCut</b></div></div></li><li class="tool" style="--i:4" tabindex="0" aria-label="DaVinci Resolve: Film editing & color"><div class="tool-spin"><div class="tool-edge"><i style="--z:-6px"></i><i style="--z:-4px"></i><i style="--z:-2px"></i><i style="--z:0px"></i><i style="--z:2px"></i><i style="--z:4px"></i><i style="--z:6px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="9" r="4"/><circle cx="17" cy="9" r="4"/><circle cx="12" cy="16.5" r="4" class="ac"/></svg><b>DaVinci Resolve</b><span class="use">Film editing & color</span></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="9" r="4"/><circle cx="17" cy="9" r="4"/><circle cx="12" cy="16.5" r="4" class="ac"/></svg><b>DaVinci Resolve</b></div></div></li><li class="tool" style="--i:5" tabindex="0" aria-label="Figma: UI design & prototypes"><div class="tool-spin"><div class="tool-edge"><i style="--z:-6px"></i><i style="--z:-4px"></i><i style="--z:-2px"></i><i style="--z:0px"></i><i style="--z:2px"></i><i style="--z:4px"></i><i style="--z:6px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C8 9 16 15 19 5"/><rect x="3" y="17" width="4" height="4" rx="1"/><rect x="17" y="3" width="4" height="4" rx="1"/><circle cx="12" cy="12" r="2" class="ac fill"/></svg><b>Figma</b><span class="use">UI design & prototypes</span></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C8 9 16 15 19 5"/><rect x="3" y="17" width="4" height="4" rx="1"/><rect x="17" y="3" width="4" height="4" rx="1"/><circle cx="12" cy="12" r="2" class="ac fill"/></svg><b>Figma</b></div></div></li><li class="tool" style="--i:6" tabindex="0" aria-label="Google Workspace: Docs, Sheets & Slides for planning"><div class="tool-spin"><div class="tool-edge"><i style="--z:-6px"></i><i style="--z:-4px"></i><i style="--z:-2px"></i><i style="--z:0px"></i><i style="--z:2px"></i><i style="--z:4px"></i><i style="--z:6px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="9" rx="1.5"/><path d="M5 7h3M5 9.5h3"/><rect x="14" y="4" width="7" height="9" rx="1.5"/><path d="M14 8.5h7M17.5 4v9"/><rect x="7" y="15" width="10" height="6" rx="1.5" class="ac"/></svg><b>Google Workspace</b><span class="use">Docs, Sheets & Slides for planning</span></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="9" rx="1.5"/><path d="M5 7h3M5 9.5h3"/><rect x="14" y="4" width="7" height="9" rx="1.5"/><path d="M14 8.5h7M17.5 4v9"/><rect x="7" y="15" width="10" height="6" rx="1.5" class="ac"/></svg><b>Google Workspace</b></div></div></li><li class="tool" style="--i:7" tabindex="0" aria-label="Microsoft Excel: Content calendars & tracking"><div class="tool-spin"><div class="tool-edge"><i style="--z:-6px"></i><i style="--z:-4px"></i><i style="--z:-2px"></i><i style="--z:0px"></i><i style="--z:2px"></i><i style="--z:4px"></i><i style="--z:6px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M3 14.5h18M9 4v16"/><path d="M12 17l2.5-2 2.5 1.5 3-3.5" class="ac"/></svg><b>Microsoft Excel</b><span class="use">Content calendars & tracking</span></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M3 14.5h18M9 4v16"/><path d="M12 17l2.5-2 2.5 1.5 3-3.5" class="ac"/></svg><b>Microsoft Excel</b></div></div></li><li class="tool" style="--i:8" tabindex="0" aria-label="Miro: Brainstorms & mapping ideas"><div class="tool-spin"><div class="tool-edge"><i style="--z:-6px"></i><i style="--z:-4px"></i><i style="--z:-2px"></i><i style="--z:0px"></i><i style="--z:2px"></i><i style="--z:4px"></i><i style="--z:6px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><rect x="5.5" y="7" width="5" height="5" rx="1" class="ac"/><rect x="13" y="7" width="5.5" height="4" rx="1"/><rect x="11" y="14" width="6" height="3.5" rx="1"/><path d="M10.5 9.5l2.5 0M14 11v3"/></svg><b>Miro</b><span class="use">Brainstorms & mapping ideas</span></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><rect x="5.5" y="7" width="5" height="5" rx="1" class="ac"/><rect x="13" y="7" width="5.5" height="4" rx="1"/><rect x="11" y="14" width="6" height="3.5" rx="1"/><path d="M10.5 9.5l2.5 0M14 11v3"/></svg><b>Miro</b></div></div></li><li class="tool" style="--i:9" tabindex="0" aria-label="Instagram Analytics: Reading the numbers to plan content"><div class="tool-spin"><div class="tool-edge"><i style="--z:-6px"></i><i style="--z:-4px"></i><i style="--z:-2px"></i><i style="--z:0px"></i><i style="--z:2px"></i><i style="--z:4px"></i><i style="--z:6px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 16v-3M12 16V9M16 16v-5"/><circle cx="16.8" cy="7.2" r="1.2" class="ac fill"/></svg><b>Instagram Analytics</b><span class="use">Reading the numbers to plan content</span></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 16v-3M12 16V9M16 16v-5"/><circle cx="16.8" cy="7.2" r="1.2" class="ac fill"/></svg><b>Instagram Analytics</b></div></div></li></ul>
-    <div class="skillrows">
-      <div class="skillrow"><span class="label">What I do</span><ul class="pills"><li>Social Media Management</li><li>Content Creation</li><li>Photography</li><li>Videography</li><li>Competitive Research</li><li>Instagram Analytics</li></ul></div>
-      <div class="skillrow"><span class="label">How I work</span><ul class="pills"><li>Communication</li><li>Collaboration</li><li>Research</li><li>Problem Solving</li><li>Cross-functional Work</li></ul></div>
-    </div>
+    <div class="toolkit" data-r=""><span class="label">Tools I use</span><ul class="tools" id="tools"><li class="tool" style="--bg:linear-gradient(135deg,#00C4CC 0%,#6B5CF0 60%,#7D2AE8 100%);--edge:#4b1fa0;--st:#fff;--a1:#fff" tabindex="0" title="Social graphics, flyers & email visuals" aria-label="Canva: Social graphics, flyers & email visuals"><div class="tool-3d"><div class="tool-spin"><div class="tool-edge"><i style="--z:-5px"></i><i style="--z:-3px"></i><i style="--z:-1px"></i><i style="--z:1px"></i><i style="--z:3px"></i><i style="--z:5px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16.5c-1.8-1.5-2-4.6-.3-6.9 1.9-2.6 5.6-3.5 7.6-1.7" /><path d="M13.5 15.8c-1.4 1.2-3.5 1.6-5 .8" /><circle cx="16.6" cy="12.3" r="2" class="f1"/></svg></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16.5c-1.8-1.5-2-4.6-.3-6.9 1.9-2.6 5.6-3.5 7.6-1.7" /><path d="M13.5 15.8c-1.4 1.2-3.5 1.6-5 .8" /><circle cx="16.6" cy="12.3" r="2" class="f1"/></svg></div></div></div><b class="tool-name">Canva</b></li><li class="tool" style="--bg:#001E36;--edge:#00111f;--st:#31A8FF;--a1:#31A8FF" tabindex="0" title="Retouching & photo composites" aria-label="Photoshop: Retouching & photo composites"><div class="tool-3d"><div class="tool-spin"><div class="tool-edge"><i style="--z:-5px"></i><i style="--z:-3px"></i><i style="--z:-1px"></i><i style="--z:1px"></i><i style="--z:3px"></i><i style="--z:5px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="11" height="11" rx="1.5"/><rect x="9" y="9" width="11" height="11" rx="1.5" class="s1"/></svg></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="11" height="11" rx="1.5"/><rect x="9" y="9" width="11" height="11" rx="1.5" class="s1"/></svg></div></div></div><b class="tool-name">Photoshop</b></li><li class="tool" style="--bg:#001E36;--edge:#00111f;--st:#31A8FF;--a1:#31A8FF" tabindex="0" title="Editing & color-grading photos" aria-label="Lightroom: Editing & color-grading photos"><div class="tool-3d"><div class="tool-spin"><div class="tool-edge"><i style="--z:-5px"></i><i style="--z:-3px"></i><i style="--z:-1px"></i><i style="--z:1px"></i><i style="--z:3px"></i><i style="--z:5px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5l2.6 5.2M19.5 12l-5.8.7M15.8 18.5l-3.6-4.6M8.2 18.5l2.1-5.4M4.5 12h5.8M8.2 5.5l3 5" class="s1"/></svg></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5l2.6 5.2M19.5 12l-5.8.7M15.8 18.5l-3.6-4.6M8.2 18.5l2.1-5.4M4.5 12h5.8M8.2 5.5l3 5" class="s1"/></svg></div></div></div><b class="tool-name">Lightroom</b></li><li class="tool" style="--bg:#0A0A0A;--edge:#000;--st:#fff;--a1:#fff" tabindex="0" title="Reels & short-form video edits" aria-label="CapCut: Reels & short-form video edits"><div class="tool-3d"><div class="tool-spin"><div class="tool-edge"><i style="--z:-5px"></i><i style="--z:-3px"></i><i style="--z:-1px"></i><i style="--z:1px"></i><i style="--z:3px"></i><i style="--z:5px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7l14 10M5 17L19 7" /><circle cx="5" cy="7" r="2" class="f1"/><circle cx="5" cy="17" r="2" class="f1"/></svg></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7l14 10M5 17L19 7" /><circle cx="5" cy="7" r="2" class="f1"/><circle cx="5" cy="17" r="2" class="f1"/></svg></div></div></div><b class="tool-name">CapCut</b></li><li class="tool" style="--bg:linear-gradient(160deg,#3a3a3a,#161616);--edge:#0d0d0d;--st:#fff;--a1:#F37021;--a2:#1C9AD6;--a3:#6DB33F" tabindex="0" title="Film editing & color" aria-label="DaVinci Resolve: Film editing & color"><div class="tool-3d"><div class="tool-spin"><div class="tool-edge"><i style="--z:-5px"></i><i style="--z:-3px"></i><i style="--z:-1px"></i><i style="--z:1px"></i><i style="--z:3px"></i><i style="--z:5px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9.5" r="3.6" class="f1"/><circle cx="15" cy="9.5" r="3.6" class="f2"/><circle cx="12" cy="14.8" r="3.6" class="f3"/></svg></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9.5" r="3.6" class="f1"/><circle cx="15" cy="9.5" r="3.6" class="f2"/><circle cx="12" cy="14.8" r="3.6" class="f3"/></svg></div></div></div><b class="tool-name">DaVinci Resolve</b></li><li class="tool" style="--bg:#1E1E1E;--edge:#0e0e0e;--st:#fff;--a1:#F24E1E;--a2:#1ABCFE;--a3:#A259FF" tabindex="0" title="UI design & prototypes" aria-label="Figma: UI design & prototypes"><div class="tool-3d"><div class="tool-spin"><div class="tool-edge"><i style="--z:-5px"></i><i style="--z:-3px"></i><i style="--z:-1px"></i><i style="--z:1px"></i><i style="--z:3px"></i><i style="--z:5px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18C9 8 15 16 18 6" /><circle cx="6" cy="18" r="1.9" class="f1"/><circle cx="18" cy="6" r="1.9" class="f2"/><circle cx="12" cy="11.6" r="1.9" class="f3"/></svg></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18C9 8 15 16 18 6" /><circle cx="6" cy="18" r="1.9" class="f1"/><circle cx="18" cy="6" r="1.9" class="f2"/><circle cx="12" cy="11.6" r="1.9" class="f3"/></svg></div></div></div><b class="tool-name">Figma</b></li><li class="tool" style="--bg:#FFFFFF;--edge:#c9ced6;--st:#202124;--a1:#4285F4;--a2:#EA4335;--a3:#34A853;--a4:#FBBC04" tabindex="0" title="Docs, Sheets & Slides for planning" aria-label="Google Workspace: Docs, Sheets & Slides for planning"><div class="tool-3d"><div class="tool-spin"><div class="tool-edge"><i style="--z:-5px"></i><i style="--z:-3px"></i><i style="--z:-1px"></i><i style="--z:1px"></i><i style="--z:3px"></i><i style="--z:5px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.6" class="f1"/><rect x="13" y="4" width="7" height="7" rx="1.6" class="f2"/><rect x="4" y="13" width="7" height="7" rx="1.6" class="f3"/><rect x="13" y="13" width="7" height="7" rx="1.6" class="f4"/></svg></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.6" class="f1"/><rect x="13" y="4" width="7" height="7" rx="1.6" class="f2"/><rect x="4" y="13" width="7" height="7" rx="1.6" class="f3"/><rect x="13" y="13" width="7" height="7" rx="1.6" class="f4"/></svg></div></div></div><b class="tool-name">Google Workspace</b></li><li class="tool" style="--bg:#107C41;--edge:#0a5129;--st:#fff;--a1:#fff" tabindex="0" title="Content calendars & tracking" aria-label="Excel: Content calendars & tracking"><div class="tool-3d"><div class="tool-spin"><div class="tool-edge"><i style="--z:-5px"></i><i style="--z:-3px"></i><i style="--z:-1px"></i><i style="--z:1px"></i><i style="--z:3px"></i><i style="--z:5px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="5" width="15" height="14" rx="2"/><path d="M4.5 10h15M4.5 14.5h15M10 5v14"/></svg></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="5" width="15" height="14" rx="2"/><path d="M4.5 10h15M4.5 14.5h15M10 5v14"/></svg></div></div></div><b class="tool-name">Excel</b></li><li class="tool" style="--bg:#FFD02F;--edge:#c9a10f;--st:#050038;--a1:#050038" tabindex="0" title="Brainstorms & mapping ideas" aria-label="Miro: Brainstorms & mapping ideas"><div class="tool-3d"><div class="tool-spin"><div class="tool-edge"><i style="--z:-5px"></i><i style="--z:-3px"></i><i style="--z:-1px"></i><i style="--z:1px"></i><i style="--z:3px"></i><i style="--z:5px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="7" height="7" rx="1.2"/><rect x="13" y="7" width="7" height="5.5" rx="1.2"/><rect x="8" y="14.5" width="8" height="5" rx="1.2"/></svg></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="7" height="7" rx="1.2"/><rect x="13" y="7" width="7" height="5.5" rx="1.2"/><rect x="8" y="14.5" width="8" height="5" rx="1.2"/></svg></div></div></div><b class="tool-name">Miro</b></li><li class="tool" style="--bg:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);--edge:#8a1f6e;--st:#fff;--a1:#fff" tabindex="0" title="Reading the numbers to plan content" aria-label="Instagram Insights: Reading the numbers to plan content"><div class="tool-3d"><div class="tool-spin"><div class="tool-edge"><i style="--z:-5px"></i><i style="--z:-3px"></i><i style="--z:-1px"></i><i style="--z:1px"></i><i style="--z:3px"></i><i style="--z:5px"></i></div><div class="tool-face front"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 17v-4M12 17V8.5M16.5 17v-6"/><path d="M5 19.5h14" /></svg></div><div class="tool-face back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 17v-4M12 17V8.5M16.5 17v-6"/><path d="M5 19.5h14" /></svg></div></div></div><b class="tool-name">Instagram Insights</b></li></ul></div>
   </div>
 </section>
 
 <section class="block" id="social">
   <div class="wrap">
     <div class="head">
-      <div><div class="eyebrow label">03 — Social media</div><h2>Content &amp; Results<span class="dot">.</span></h2></div>
+      <div><div class="eyebrow label">02 — Social media</div><h2>Content &amp; Results<span class="dot">.</span></h2></div>
       <div class="desc"><p>Campaigns, calendars and content I've planned, made and measured for real organizations.</p></div>
     </div>
     <div class="soc-grid">
@@ -988,7 +965,7 @@ footer .flinks a[href="#top"]:hover{background:rgba(255,236,220,.12);border-colo
 <section class="block" id="photography" style="padding-bottom:0">
   <div class="wrap">
     <div class="head">
-      <div><div class="eyebrow label">04 — The archive</div><h2>Photography<span class="dot">.</span></h2></div>
+      <div><div class="eyebrow label">03 — The archive</div><h2>Photography<span class="dot">.</span></h2></div>
       <div class="desc"><p>Photography is how I hold onto the moments that matter to me. These three sets cover hiking, portraits, and worship, each one a different side of what I love to shoot.</p></div>
     </div>
   </div>
@@ -998,7 +975,7 @@ footer .flinks a[href="#top"]:hover{background:rgba(255,236,220,.12);border-colo
 <section class="block" id="graphics" style="padding-bottom:0">
   <div class="wrap">
     <div class="head">
-      <div><div class="eyebrow label">05 — Graphics &amp; design</div><h2>Graphics<span class="dot">.</span></h2></div>
+      <div><div class="eyebrow label">04 — Graphics &amp; design</div><h2>Graphics<span class="dot">.</span></h2></div>
     </div>
   </div>
   <div class="gc-wrap" id="graphicGal"></div>
@@ -1007,7 +984,7 @@ footer .flinks a[href="#top"]:hover{background:rgba(255,236,220,.12);border-colo
 <section class="block" id="films">
   <div class="wrap">
     <div class="head">
-      <div><div class="eyebrow label">06 — Cinematography</div><h2>Film &amp; Video<span class="dot">.</span></h2></div>
+      <div><div class="eyebrow label">05 — Cinematography</div><h2>Film &amp; Video<span class="dot">.</span></h2></div>
     </div>
     <div class="film" id="film">
       <div class="film-media" id="filmMedia">
@@ -1026,7 +1003,7 @@ footer .flinks a[href="#top"]:hover{background:rgba(255,236,220,.12);border-colo
 <section class="block" id="case-studies">
   <div class="wrap">
     <div class="head">
-      <div><div class="eyebrow label">07 — Process</div><h2>Case Studies<span class="dot">.</span></h2></div>
+      <div><div class="eyebrow label">06 — Process</div><h2>Case Studies<span class="dot">.</span></h2></div>
       <div class="desc"><p>Two projects, a communications campaign for a nonprofit and an app design for a class.</p>
         <a class="textlink label" href="https://www.figma.com/design/oymflxIRWgn3KZOvPSEt0y/FlyLine-Case-Study?node-id=0-1" target="_blank" rel="noopener">FlyLine — full Figma case study ↗</a></div>
     </div>
@@ -1096,7 +1073,7 @@ footer .flinks a[href="#top"]:hover{background:rgba(255,236,220,.12);border-colo
     <div class="bcard" data-r="">
       <div class="bgrid">
         <div>
-          <div class="eyebrow label">08 — Booking</div>
+          <div class="eyebrow label">07 — Booking</div>
           <h2>Let's create something <em>worth it</em><span class="dot">.</span></h2>
           <p class="sub"><br></p>
           <div class="contact">
@@ -1293,8 +1270,7 @@ matchMedia('(max-width:860px)').addEventListener('change',e=>{if(!e.matches)setM
 const sectionNav={about:'#about','case-studies':'#case-studies',booking:'#booking'};
 const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){const id=en.target.id;
   linksEl.querySelectorAll('.nl[href]').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));
-  const isWork=['photography','graphics','films','social'].includes(id);
-  if(id==='skills'){ linksEl.querySelectorAll('.nl[href]').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#about')); } workBtn.classList.toggle('active',isWork);
+  const isWork=['photography','graphics','films','social'].includes(id); workBtn.classList.toggle('active',isWork);
   if(!linksEl.matches(':hover')) moveInd(isWork?workBtn:activeLink());}})},{root:page,rootMargin:'-45% 0px -50% 0px'});
 document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
 
@@ -1589,16 +1565,14 @@ const TRACKS=[{"t": "Wonderful God (feat. Jonathan Ogden)", "a": "Montell Fish",
 })();
 
 
-/* ---------- Tools & Skills: slow 3D spin; hover/tap faces front and shows what I use it for ---------- */
+/* ---------- Tools I use: slow 3D spin; hover/tap turns a tile to face front ---------- */
 (function(){const tiles=[...document.querySelectorAll('.tool')]; if(!tiles.length) return;
-  const st=tiles.map((el,k)=>({el,spin:el.querySelector('.tool-spin'),front:el.querySelector('.front'),back:el.querySelector('.back'),a:(k*41)%360,speed:20+(k%3)*5,dir:k%2?-1:1,hold:false,target:null,tilt:0}));
+  const st=tiles.map((el,k)=>({el,spin:el.querySelector('.tool-spin'),front:el.querySelector('.front'),back:el.querySelector('.back'),a:(k*47)%360,speed:26+(k%3)*6,dir:k%2?-1:1,hold:false,target:null,tilt:0}));
   const front=t=>{const a=((t.a%360)+360)%360; return t.a+(a>180?360-a:-a);};
   const on=t=>{t.hold=true;t.target=front(t);t.el.classList.add('on');}, off=t=>{t.hold=false;t.target=null;t.el.classList.remove('on');};
-  st.forEach(t=>{
-    t.el.addEventListener('mouseenter',()=>on(t)); t.el.addEventListener('mouseleave',()=>off(t));
+  st.forEach(t=>{ t.el.addEventListener('mouseenter',()=>on(t)); t.el.addEventListener('mouseleave',()=>off(t));
     t.el.addEventListener('focus',()=>on(t)); t.el.addEventListener('blur',()=>off(t));
-    t.el.addEventListener('touchstart',()=>{ if(t.hold){off(t);return;} st.forEach(o=>o!==t&&off(o)); on(t); clearTimeout(t.to); t.to=setTimeout(()=>off(t),4500); },{passive:true});
-  });
+    t.el.addEventListener('touchstart',()=>{ if(t.hold){off(t);return;} on(t); clearTimeout(t.to); t.to=setTimeout(()=>off(t),2500); },{passive:true}); });
   const draw=t=>{t.spin.style.transform=`rotateX(${t.tilt.toFixed(2)}deg) rotateY(${t.a.toFixed(2)}deg)`;
     const f=Math.cos(t.a*Math.PI/180)>=0; t.front.style.visibility=f?'visible':'hidden'; t.back.style.visibility=f?'hidden':'visible';};
   if(reduce){ st.forEach(t=>{t.a=0;draw(t)}); return; }
@@ -1606,7 +1580,7 @@ const TRACKS=[{"t": "Wonderful God (feat. Jonathan Ogden)", "a": "Montell Fish",
   new IntersectionObserver(es=>{const was=vis; vis=es[0].isIntersecting; if(vis&&!was){last=performance.now(); requestAnimationFrame(loop);}},{root:page}).observe(document.getElementById('tools'));
   function loop(now){ if(!vis) return; const dt=Math.min(.05,(now-last)/1000); last=now;
     st.forEach((t,k)=>{ if(t.hold&&t.target!==null){ const e=Math.min(1,dt*5); t.a+=(t.target-t.a)*e; t.tilt+=(0-t.tilt)*e; }
-      else { t.a+=t.speed*t.dir*dt; t.tilt=Math.sin(now/1700+k*1.3)*7; } draw(t); });
+      else { t.a+=t.speed*t.dir*dt; t.tilt=Math.sin(now/1700+k*1.3)*6; } draw(t); });
     requestAnimationFrame(loop);}
   st.forEach(draw);
 })();
