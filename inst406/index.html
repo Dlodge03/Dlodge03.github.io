@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Hearing Loss Safety App: Competitor Analysis · INST406 Case Study · Devonte Lodge</title>
+<meta name="description" content="INST406 case study by Devonte Lodge: competitor analysis of three sound-awareness tools for people who are Deaf or hard of hearing, and what it means for our safety app.">
+<meta property="og:title" content="Hearing Loss Safety App · INST406 Case Study">
+<meta property="og:description" content="Competitor analysis and design implications for a phone + wearable safety app for people who are Deaf or hard of hearing.">
+<meta property="og:image" content="https://dlodge03.github.io/img/og-v4.jpg">
+<meta name="theme-color" content="#0B0A09">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap">
+<style>
+:root{--bg:#0B0A09;--raised:#151311;--line:rgba(255,236,220,.10);--field:rgba(255,236,220,.16);--fg:#F5F0EA;--body:#ABA49C;--muted:#7D766F;--value:#E8E1D9;--soft:#CBC3BA;--orange:#FF5A1F;--ink:#0B0A09;
+  --display:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;--sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--max:1160px;--gut:40px;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60vmax 60vmax at -10% 10%,rgba(212,158,82,.14),transparent 60%),radial-gradient(50vmax 50vmax at 110% 50%,rgba(232,176,96,.10),transparent 60%)}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--display);font-optical-sizing:none;font-variation-settings:"opsz" 32;margin:0}
+h1 em,h2 em,h3 em{font-style:normal;font-weight:300;color:var(--soft)}
+.dot{color:var(--orange)}
+.wrap{position:relative;z-index:1;max-width:calc(var(--max) + 2*var(--gut));margin:0 auto;padding:0 max(var(--gut),env(safe-area-inset-left,0px))}
+.label{font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--muted)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange)}
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(11,10,9,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--display);font-weight:700;font-size:19px;font-variation-settings:"opsz" 32}
+.back{display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,236,220,.28);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;transition:background .4s ease,border-color .4s ease,transform .5s cubic-bezier(.22,1,.36,1)}
+.back:hover{background:rgba(255,236,220,.08);border-color:rgba(255,236,220,.45);transform:translateY(-2px)}
+/* hero */
+.hero{padding:88px 0 48px}
+.hero h1{font-weight:700;font-size:clamp(44px,6.4vw,88px);line-height:1.02;letter-spacing:-.02em;margin:20px 0 22px;max-width:15ch;text-wrap:balance}
+.hero .lede{max-width:640px;color:var(--soft);font-size:20px;line-height:1.6;margin:0}
+/* quick reference */
+.ref{margin-top:48px;border:1px solid var(--line);border-radius:24px;background:rgba(21,19,17,.65);display:grid;grid-template-columns:1.25fr 1fr 1fr;overflow:hidden}
+.ref>div{padding:24px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.ref>div:nth-child(3n){border-right:0}
+.ref>div.wide{grid-column:1/-1;border-right:0}
+.ref>div:nth-last-child(-n+1){border-bottom:0}
+.ref .label{color:var(--muted);font-size:10px}
+.ref p{margin:0;color:var(--value);font-size:15px;line-height:1.55}
+.team{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:15px;color:var(--value)}
+.team li.me{color:var(--fg);font-weight:600}
+.team li.me::after{content:" (me)";color:var(--orange);font-weight:500;font-size:12px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.tags li{height:32px;display:inline-flex;align-items:center;padding:0 14px;border-radius:999px;border:1px solid rgba(255,90,31,.35);font-size:13px;color:var(--fg)}
+/* sections */
+section.s{padding:72px 0;border-top:1px solid var(--line)}
+.s-head{display:grid;grid-template-columns:300px minmax(0,1fr);gap:48px;align-items:start}
+.s-head h2{font-weight:700;font-size:clamp(32px,3.6vw,48px);line-height:1.05;letter-spacing:-.015em;margin-top:14px}
+.s-body{display:flex;flex-direction:column;gap:20px;min-width:0}
+.s-body>p{margin:0;color:var(--soft);font-size:18px;line-height:1.65;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{border:1px solid var(--line);border-radius:18px;background:rgba(255,236,220,.03);padding:22px;display:flex;flex-direction:column;gap:10px;transition:border-color .5s ease,background-color .5s ease}
+.card:hover{border-color:rgba(255,236,220,.22);background:rgba(255,236,220,.05)}
+.card .label{color:var(--orange);font-size:10px}
+.card h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.01em}
+.card p{margin:0;color:var(--soft);font-size:15px;line-height:1.6}
+/* concept */
+.concept{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:12px}
+.concept .card.big h3{font-size:26px}
+.chipline{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chipline span{height:30px;display:inline-flex;align-items:center;padding:0 12px;border-radius:999px;background:rgba(255,236,220,.06);font-size:13px;color:var(--value)}
+/* competitors */
+.comp{border:1px solid var(--line);border-radius:24px;background:rgba(21,19,17,.65);padding:32px;display:flex;flex-direction:column;gap:24px}
+.comp + .comp{margin-top:14px}
+.comp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.comp-top h3{font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-.015em}
+.comp-top .label{color:var(--orange)}
+.comp-top p{margin:8px 0 0;color:var(--soft);font-size:16px;max-width:620px}
+.price{flex:none;padding:10px 16px;border-radius:14px;border:1px solid var(--field);font-size:13px;color:var(--value);max-width:260px}
+.price b{display:block;font-family:var(--display);font-variation-settings:"opsz" 32;font-size:22px;color:var(--fg);font-weight:700}
+.specs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.spec{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:rgba(255,236,220,.025)}
+.spec .label{display:block;color:var(--muted);font-size:10px;margin-bottom:6px}
+.spec span:last-child{font-size:14px;color:var(--value);line-height:1.5}
+.sw{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sw>div{border-radius:16px;padding:18px 20px;border:1px solid var(--line)}
+.sw .plus{background:rgba(61,220,132,.05);border-color:rgba(61,220,132,.22)}
+.sw .minus{background:rgba(255,90,31,.05);border-color:rgba(255,90,31,.25)}
+.sw h4{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.sw .plus h4{color:#3DDC84}.sw .minus h4{color:var(--orange)}
+.sw ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px;color:var(--soft);font-size:14.5px;line-height:1.55}
+.take{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border-radius:16px;background:rgba(255,236,220,.05)}
+.take .label{flex:none;color:var(--fg);padding-top:3px}
+.take p{margin:0;color:var(--value);font-size:15.5px;line-height:1.6}
+/* matrix */
+.matrix-wrap{border:1px solid var(--line);border-radius:22px;overflow:auto;background:rgba(21,19,17,.65)}
+.matrix{width:100%;border-collapse:collapse;min-width:760px;font-size:14px}
+.matrix th,.matrix td{padding:15px 16px;text-align:center;border-bottom:1px solid var(--line)}
+.matrix thead th{font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.matrix thead th.ours{color:var(--orange)}
+.matrix td:first-child,.matrix th:first-child{text-align:left;color:var(--value)}
+.matrix tr:last-child td{border-bottom:0}
+.matrix td.ours{background:rgba(255,90,31,.06)}
+.m{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;font-size:13px;font-weight:600}
+.m.y{background:rgba(61,220,132,.15);color:#3DDC84}.m.n{background:rgba(255,236,220,.06);color:var(--muted)}.m.p{background:rgba(227,184,115,.16);color:#E3B873}
+.mnote{display:block;font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.3}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+/* gaps */
+.gaps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;counter-reset:g}
+.gaps .card h3::before{counter-increment:g;content:counter(g,decimal-leading-zero);display:block;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.18em;color:var(--orange);margin-bottom:10px}
+.bigq{font-family:var(--display);font-variation-settings:"opsz" 32;font-weight:700;font-size:clamp(24px,2.6vw,34px);line-height:1.25;letter-spacing:-.01em;margin:0;max-width:820px}
+.bigq em{font-style:normal;font-weight:300;color:var(--soft)}
+/* implications + alert demo */
+.impl{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:28px;align-items:start}
+.impl ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:i}
+.impl li{display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:rgba(255,236,220,.03)}
+.impl li::before{counter-increment:i;content:counter(i);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--orange);color:var(--ink);font-size:13px;font-weight:600}
+.impl li b{display:block;font-size:16px;color:var(--fg);margin-bottom:3px}
+.impl li span{color:var(--soft);font-size:14.5px;line-height:1.55}
+.demo{position:sticky;top:96px;display:flex;flex-direction:column;gap:12px}
+.demo .label{color:var(--muted)}
+.phone{border-radius:34px;padding:12px;background:#1b1816;border:1px solid rgba(255,236,220,.14);box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.screen{border-radius:24px;background:linear-gradient(180deg,#161310,#0d0b0a);padding:18px 16px 20px;display:flex;flex-direction:column;gap:14px;min-height:420px}
+.sbar{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.mapbox{position:relative;height:170px;border-radius:16px;overflow:hidden;background:#1c1916}
+.mapbox::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 46%,rgba(255,236,220,.08) 46% 54%,transparent 54%),linear-gradient(0deg,transparent 46%,rgba(255,236,220,.08) 46% 54%,transparent 54%)}
+.mapbox .xw{position:absolute;left:50%;top:50%;width:46px;height:20px;transform:translate(-50%,-50%);background:repeating-linear-gradient(90deg,rgba(255,236,220,.35) 0 5px,transparent 5px 10px)}
+.mapbox .me{position:absolute;left:50%;top:66%;width:14px;height:14px;margin:-7px;border-radius:50%;background:#4C9BE8;box-shadow:0 0 0 5px rgba(76,155,232,.25)}
+.mapbox .car{position:absolute;top:44%;left:8%;width:22px;height:12px;border-radius:4px;background:var(--orange);box-shadow:0 0 14px rgba(255,90,31,.7)}
+.mapbox .ring{position:absolute;top:44%;left:8%;width:22px;height:12px;border-radius:50%;border:2px solid rgba(255,90,31,.6)}
+@media (prefers-reduced-motion:no-preference){.mapbox .car{animation:drive 3.6s cubic-bezier(.5,0,.4,1) infinite}.mapbox .ring{animation:drive 3.6s cubic-bezier(.5,0,.4,1) infinite,ping 1.2s ease-out infinite}
+  @keyframes drive{0%{left:4%}70%{left:34%}100%{left:34%}}@keyframes ping{0%{transform:scale(1);opacity:1}100%{transform:scale(3.2);opacity:0}}}
+.alert{border-radius:16px;padding:14px;background:rgba(255,90,31,.12);border:1px solid rgba(255,90,31,.45);display:flex;flex-direction:column;gap:8px}
+.alert .top{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:600}
+.alert b{font-family:var(--display);font-variation-settings:"opsz" 32;font-size:21px;line-height:1.15;color:var(--fg)}
+.alert small{color:var(--soft);font-size:12.5px}
+.vib{display:flex;align-items:flex-end;gap:3px;height:22px}
+.vib i{flex:1;border-radius:2px;background:var(--orange);opacity:.85}
+.ann{border-radius:14px;padding:12px 14px;background:rgba(255,236,220,.06);font-size:13px;color:var(--value);line-height:1.45}
+.ann span{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.demo .cap{font-size:12.5px;color:var(--muted);line-height:1.5;margin:0}
+/* sources */
+.src{margin:0;padding-left:20px;color:var(--soft);font-size:15px;display:grid;grid-template-columns:1fr 1fr;gap:6px 30px}
+.src a{color:var(--value);text-decoration:underline;text-decoration-color:rgba(255,236,220,.3);text-underline-offset:3px}
+.src a:hover{color:var(--orange)}
+.note{font-size:13px;color:var(--muted);margin:6px 0 0}
+footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:40px 0 60px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer .label{color:var(--muted)}
+/* reveal */
+@media (prefers-reduced-motion:no-preference){.js [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform 1s cubic-bezier(.22,1,.36,1)}.js [data-r].in{opacity:1;transform:none}}
+/* responsive */
+@media (max-width:980px){.s-head{grid-template-columns:minmax(0,1fr);gap:24px}.ref{grid-template-columns:1fr 1fr}.ref>div:nth-child(3n){border-right:1px solid var(--line)}.ref>div:nth-child(2n){border-right:0}.cards,.gaps,.specs{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.impl{grid-template-columns:minmax(0,1fr)}.demo{position:static;max-width:360px}.concept{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){:root{--gut:20px}.hero{padding:56px 0 32px}.hero .lede{font-size:17px}.ref{grid-template-columns:minmax(0,1fr)}.ref>div{border-right:0!important}.cards,.gaps,.specs,.sw{grid-template-columns:minmax(0,1fr)}.comp{padding:22px 18px;border-radius:20px}.comp-top h3{font-size:25px}section.s{padding:52px 0}.s-body>p{font-size:16.5px}.src{grid-template-columns:minmax(0,1fr)}.take{flex-direction:column;gap:6px}.back{padding:0 14px}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<header class="nav"><div class="wrap"><a class="logo" href="../">Devonte Lodge</a><a class="back" href="../#case-studies">← All work</a></div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div class="eyebrow label" data-r>Case study · INST406</div>
+  <h1 data-r>Safety you can <em>see and feel</em><span class="dot">.</span></h1>
+  <p class="lede" data-r>A phone app and wearable for people who are Deaf or hard of hearing, turning the sounds that matter, like a car approaching or an announcement at the gate, into clear visuals and vibrations. My part was the competitor research that shaped our design direction.</p>
+
+  <div class="ref" data-r>
+    <div class="wide"><span class="label">Team</span>
+      <ul class="team"><li>Elaina Mangum</li><li>Aderinsola Oluwatoba</li><li>Tommy Tran</li><li>Anh Nguyen</li><li>Matthew Mercier</li><li class="me">Devonte Lodge</li></ul></div>
+    <div><span class="label">My role</span><p>UX research: competitor analysis of three sound-awareness tools, their features, strengths and weaknesses, and the design strategies we took from them.</p></div>
+    <div><span class="label">Course</span><p>INST406<br>University of Maryland</p></div>
+    <div><span class="label">Date</span><p>November 2026</p></div>
+    <div class="wide"><span class="label">Summary</span><p>Today's tools tell you <em>what</em> sound is happening. None of them tell you <em>where the danger is</em> or <em>what to do</em>. Our app leads with street and transit safety: a vehicle-proximity map, labeled vibration alerts and announcement text.</p></div>
+    <div class="wide"><span class="label">Tags</span><ul class="tags"><li>UX Research</li><li>Competitive Analysis</li><li>Accessibility</li><li>Mobile + Wearable</li><li>Safety</li><li>Group Project</li></ul></div>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap s-head">
+  <div data-r><div class="eyebrow label">01 — The concept</div><h2>Sound, turned into <em>signals</em><span class="dot">.</span></h2></div>
+  <div class="s-body">
+    <div class="concept" data-r>
+      <div class="card big"><span class="label">What we're building</span><h3>A phone app plus a wearable</h3><p>It listens for important sounds and turns them into visuals and vibration alerts, using map integration and low- and high-frequency audio detection.</p>
+        <div class="chipline"><span>Map integration</span><span>Low + high frequency detection</span><span>Vibration alerts</span><span>Visual labels</span></div></div>
+      <div class="card"><span class="label">Who it's for</span><h3>People who are Deaf or hard of hearing</h3><p>Especially when they're out in the world: crossing streets, moving through transit stations and airports.</p></div>
+    </div>
+    <div class="cards" data-r>
+      <div class="card"><span class="label">Problem 01</span><h3>Crossing the street safely</h3><p>Including near quiet electric vehicles that are easy to miss.</p></div>
+      <div class="card"><span class="label">Problem 02</span><h3>Missed announcements</h3><p>Gate changes and updates at airports and on public transportation.</p></div>
+      <div class="card"><span class="label">Problem 03</span><h3>Missed alarms</h3><p>Alarms and other urgent sounds that need attention right away.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap s-head">
+  <div data-r><div class="eyebrow label">02 — Research</div><h2>Three competitors, <em>one gap</em><span class="dot">.</span></h2></div>
+  <div class="s-body">
+    <p data-r>I analyzed three tools that help people notice sound at home, at work and in conversation: a hearing-aid app, a built-in phone feature and a haptic wearable. For each, I looked at platform, price, core features, strengths and weaknesses, then pulled out a takeaway for our app.</p>
+
+    <article class="comp" data-r>
+      <div class="comp-top"><div><span class="label">Competitor 01 · Hearing aid app</span><h3>Oticon Companion</h3><p>A free remote control for Oticon hearing aids. It helps people adjust what they hear, but it doesn't turn sounds into visual or haptic alerts.</p></div>
+        <div class="price"><b>Free</b>Requires Oticon hearing aids</div></div>
+      <div class="specs">
+        <div class="spec"><span class="label">Platform</span><span>iPhone, iPad, Android, plus Apple Watch control</span></div>
+        <div class="spec"><span class="label">Core features</span><span>Discreet volume and program controls, microphone fine-tuning, an equalizer on some models, and "find my hearing aids"</span></div>
+        <div class="spec"><span class="label">Care + accessories</span><span>Remote visits with an audiologist, usage data for fittings, TV Adapter and ConnectClip</span></div>
+      </div>
+      <div class="sw">
+        <div class="plus"><h4>Strengths</h4><ul><li>Polished, discreet design that helps reduce the stigma of hearing aids</li><li>Connects users to their audiologist through remote care</li><li>Control from Apple Watch, with step-by-step help and in-app notifications</li></ul></div>
+        <div class="minus"><h4>Weaknesses</h4><ul><li>Only works with Oticon hearing aids, which leaves out Deaf users who don't use them</li><li>Makes sound easier to hear but never turns it into visual or haptic alerts</li><li>No hazard detection, vehicle awareness or map-based alerts</li><li>Features depend on the hearing aid model and firmware</li><li>The App Store listing doesn't say which accessibility features it supports</li></ul></div>
+      </div>
+      <div class="take"><span class="label">Takeaway</span><p>Users can switch listening programs for different places. We could offer similar <b>modes</b>, like Street or Transit, that change which alerts and vibrations are active. Remote help from a professional is also worth considering.</p></div>
+    </article>
+
+    <article class="comp" data-r>
+      <div class="comp-top"><div><span class="label">Competitor 02 · Built-in feature</span><h3>Apple Sound Recognition</h3><p>Apple's built-in accessibility feature listens for set sounds and sends a notification and vibration to the iPhone or the wrist.</p></div>
+        <div class="price"><b>Free</b>Requires Apple hardware</div></div>
+      <div class="specs">
+        <div class="spec"><span class="label">Platform</span><span>iPhone and Apple Watch; newer watches can listen even without the iPhone nearby</span></div>
+        <div class="spec"><span class="label">Core features</span><span>15 preset sounds, including fire and smoke alarms, sirens, car horns, doorbells, glass breaking, crying babies and pets, plus custom-trained alarms and appliances</span></div>
+        <div class="spec"><span class="label">Alerts + privacy</span><span>A notification with a custom tone or haptic pattern for each sound; processing happens on the device</span></div>
+      </div>
+      <div class="sw">
+        <div class="plus"><h4>Strengths</h4><ul><li>Already on devices many people own</li><li>Delivers alerts to the wrist</li><li>Users choose a haptic pattern for each sound</li><li>Custom sound training handles unusual alarms</li></ul></div>
+        <div class="minus"><h4>Weaknesses</h4><ul><li>Apple says not to rely on it in high-risk or emergency situations, or for navigation</li><li>Only 15 preset sound types</li><li>No direction or distance for a sound</li><li>Watch-only listening needs newer models</li><li>Flags that an announcement is happening, but not what it says</li></ul></div>
+      </div>
+      <div class="take"><span class="label">Takeaway</span><p>Apple falls short exactly where safety matters most: navigation and high-risk moments. Building for those situations gives our design real leverage.</p></div>
+    </article>
+
+    <article class="comp" data-r>
+      <div class="comp-top"><div><span class="label">Competitor 03 · Haptic wearable</span><h3>Neosensory Sound Awareness</h3><p>A wristband that turns surrounding sounds into vibration patterns on the skin. It's the closest to what we're building.</p></div>
+        <div class="price"><b>$999</b>One-time, or 24 interest-free payments of about $42</div></div>
+      <div class="specs">
+        <div class="spec"><span class="label">Platform</span><span>A dedicated wristband plus a companion app for iOS and Android</span></div>
+        <div class="spec"><span class="label">Core features</span><span>A microphone in the band; vibrations change with a sound's pitch and loudness, with adjustable sensitivity and strength</span></div>
+        <div class="spec"><span class="label">Origin + learning</span><span>Created by neuroscientist Dr. David Eagleman with the Deaf community in mind; users learn over time what each vibration means</span></div>
+      </div>
+      <div class="sw">
+        <div class="plus"><h4>Strengths</h4><ul><li>A true haptic wearable that works without looking at a screen</li><li>Splits sound by frequency, so low and high sounds feel different</li><li>Backed by research and marketed for workplace safety</li></ul></div>
+        <div class="minus"><h4>Weaknesses</h4><ul><li>Very expensive</li><li>You feel sounds, but they aren't labeled</li><li>Takes a lot of practice before patterns mean anything</li><li>No map or location awareness, and no announcement text</li><li>Another device to buy, charge and wear</li></ul></div>
+      </div>
+      <div class="take"><span class="label">Takeaway</span><p>Haptics work, but users need <b>meaning</b>, not just a vibration. Our app should pair every vibration pattern with a clear visual label on screen.</p></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap s-head">
+  <div data-r><div class="eyebrow label">03 — Side by side</div><h2>Where each one <em>stops</em><span class="dot">.</span></h2></div>
+  <div class="s-body">
+    <p data-r>Lining up the features made the gap obvious. Every competitor covers part of the problem; none covers safety out in the street.</p>
+    <div class="matrix-wrap" data-r><table class="matrix">
+      <thead><tr><th>Feature</th><th>Oticon Companion</th><th>Apple Sound Recognition</th><th>Neosensory</th><th class="ours">Our app (planned)</th></tr></thead>
+      <tbody>
+        <tr><td>Visual, labeled alerts</td><td><span class="m n">–</span></td><td><span class="m y">✓</span></td><td><span class="m n">–</span><span class="mnote">Unlabeled</span></td><td class="ours"><span class="m y">✓</span></td></tr>
+        <tr><td>Haptic (vibration) alerts</td><td><span class="m n">–</span></td><td><span class="m y">✓</span><span class="mnote">Custom per sound</span></td><td><span class="m y">✓</span><span class="mnote">By frequency</span></td><td class="ours"><span class="m y">✓</span><span class="mnote">Paired with labels</span></td></tr>
+        <tr><td>Street and vehicle awareness</td><td><span class="m n">–</span></td><td><span class="m p">~</span><span class="mnote">Horns and sirens only</span></td><td><span class="m n">–</span></td><td class="ours"><span class="m y">✓</span><span class="mnote">Incl. quiet EVs</span></td></tr>
+        <tr><td>Direction and distance</td><td><span class="m n">–</span></td><td><span class="m n">–</span></td><td><span class="m n">–</span></td><td class="ours"><span class="m y">✓</span><span class="mnote">Proximity map</span></td></tr>
+        <tr><td>Announcement text</td><td><span class="m n">–</span></td><td><span class="m n">–</span><span class="mnote">Alert only</span></td><td><span class="m n">–</span></td><td class="ours"><span class="m y">✓</span></td></tr>
+        <tr><td>Built for navigation and safety</td><td><span class="m n">–</span></td><td><span class="m n">–</span><span class="mnote">Not for high-risk use</span></td><td><span class="m p">~</span><span class="mnote">Workplace</span></td><td class="ours"><span class="m y">✓</span></td></tr>
+        <tr><td>What you need</td><td><span class="mnote" style="margin:0">Oticon hearing aids</span></td><td><span class="mnote" style="margin:0">Apple devices</span></td><td><span class="mnote" style="margin:0">$999 wristband</span></td><td class="ours"><span class="mnote" style="margin:0;color:var(--value)">Any phone, optional wearable</span></td></tr>
+      </tbody></table></div>
+    <div class="legend" data-r><span><i class="m y">✓</i> Yes</span><span><i class="m p">~</i> Partly</span><span><i class="m n">–</i> No</span></div>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap s-head">
+  <div data-r><div class="eyebrow label">04 — Gaps &amp; opportunities</div><h2>What nobody <em>answers</em><span class="dot">.</span></h2></div>
+  <div class="s-body">
+    <p class="bigq" data-r>Every competitor answers <em>“what sound is happening?”</em> None answers <em>“where is the danger, and what should I do?”</em></p>
+    <div class="gaps" data-r>
+      <div class="card"><h3>Outdoor safety, not just home alerts</h3><p>Apple and Neosensory focus on home and work sounds, and Oticon on hearing-aid control. None is built for crossing the street.</p></div>
+      <div class="card"><h3>Electric vehicles</h3><p>Apple detects car horns, but no competitor warns you about a silent car moving toward you.</p></div>
+      <div class="card"><h3>Direction and distance</h3><p>No competitor shows where a hazard actually is. A map of nearby vehicles fills that gap.</p></div>
+      <div class="card"><h3>Announcements with meaning</h3><p>Competitors either capture everything or nothing. Our app can flag that an announcement is happening, then show its text.</p></div>
+      <div class="card"><h3>Labels plus haptics</h3><p>Neosensory proves frequency haptics work; Apple proves labeled alerts work. Combining a vibration scale with a clear label is new.</p></div>
+      <div class="card"><h3>Price</h3><p>Oticon needs its hearing aids, Apple needs Apple devices and Neosensory costs about $1,000. A cross-platform app with an optional, affordable wearable sits in between.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap s-head">
+  <div data-r><div class="eyebrow label">05 — Design implications</div><h2>What we’re <em>designing for</em><span class="dot">.</span></h2></div>
+  <div class="s-body">
+    <div class="impl">
+      <ol data-r>
+        <li><div><b>Lead with street safety</b><span>The vehicle-proximity map and crosswalk cues should lead the screens in our mid- and high-fidelity prototypes.</span></div></li>
+        <li><div><b>Pair every vibration with a label</b><span>For example, a strong rising vibration plus “Car approaching on the left.”</span></div></li>
+        <li><div><b>Let users customize haptics</b><span>Like Apple, with different patterns for vehicles, alarms and announcements.</span></div></li>
+        <li><div><b>Show announcement text</b><span>Not just an alert, but the announcement itself in high-contrast text.</span></div></li>
+        <li><div><b>Test with Deaf and hard-of-hearing users</b><span>Run an accessibility audit at each stage before high fidelity, and test with real users from the community.</span></div></li>
+      </ol>
+      <div class="demo" data-r>
+        <span class="label">Concept sketch · labeled alert</span>
+        <div class="phone"><div class="screen">
+          <div class="sbar"><span>9:41</span><span>Street mode</span></div>
+          <div class="mapbox" aria-hidden="true"><span class="xw"></span><span class="ring"></span><span class="car"></span><span class="me"></span></div>
+          <div class="alert"><div class="top"><span>Vehicle · high priority</span><span>Left</span></div><b>Car approaching on the left</b>
+            <div class="vib" aria-hidden="true"><i style="height:25%"></i><i style="height:40%"></i><i style="height:55%"></i><i style="height:70%"></i><i style="height:85%"></i><i style="height:100%"></i><i style="height:100%"></i></div>
+            <small>Strong rising vibration on your wrist</small></div>
+          <div class="ann"><span>Announcement · Terminal B</span>“Flight 482 to Chicago is now boarding at Gate B14.”</div>
+        </div></div>
+        <p class="cap">An illustration of the research recommendations: direction on a map, a labeled vibration and announcement text in one place. It isn't our final UI.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap s-head">
+  <div data-r><div class="eyebrow label">06 — Sources</div><h2>Research <em>sources</em><span class="dot">.</span></h2></div>
+  <div class="s-body" data-r>
+    <ul class="src">
+      <li><a href="https://www.oticon.com/products/app" target="_blank" rel="noopener">Oticon Companion app – Oticon</a></li>
+      <li>Oticon Companion app for professionals – Oticon</li>
+      <li>Oticon Companion support – Oticon</li>
+      <li>Oticon Companion – App Store</li>
+      <li>Oticon Companion – HearingTracker</li>
+      <li>Oticon Companion features – James Paget University Hospitals (NHS)</li>
+      <li><a href="https://support.apple.com/guide/watch/use-sound-recognition-ay39m4y6riek/watchos" target="_blank" rel="noopener">Recognize sounds using Apple Watch – Apple Watch User Guide</a></li>
+      <li>About Audio Intelligence features on Apple Watch – Apple Support</li>
+      <li>Make Apple Watch listen for sounds like the doorbell – MacRumors</li>
+      <li><a href="https://eagleman.com/latest/neosensory-and-the-science-of-sensory-substitution/" target="_blank" rel="noopener">Neosensory and the science of sensory substitution – David Eagleman</a></li>
+      <li>Neosensory Sound Awareness</li>
+      <li>Neosensory for employers</li>
+    </ul>
+    <p class="note">AI was used to help find these sources.</p>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><a class="logo" href="../">Devonte Lodge</a><span class="label">INST406 · University of Maryland · 2026</span><a class="back" href="../#case-studies">← All work</a></div></footer>
+<script>
+(function(){const els=[...document.querySelectorAll('[data-r]')]; if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return}
+  const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{rootMargin:'0px 0px -8% 0px'}); els.forEach(e=>io.observe(e));})();
+</script>
+</body>
+</html>
