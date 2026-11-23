@@ -150,6 +150,16 @@ footer .label{color:var(--muted)}
 /* responsive */
 @media (max-width:980px){.s-head{grid-template-columns:minmax(0,1fr);gap:24px}.ref{grid-template-columns:1fr 1fr}.ref>div:nth-child(3n){border-right:1px solid var(--line)}.ref>div:nth-child(2n){border-right:0}.cards,.gaps,.specs{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.impl{grid-template-columns:minmax(0,1fr)}.demo{position:static;max-width:360px}.concept{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:640px){:root{--gut:20px}.hero{padding:56px 0 32px}.hero .lede{font-size:17px}.ref{grid-template-columns:minmax(0,1fr)}.ref>div{border-right:0!important}.cards,.gaps,.specs,.sw{grid-template-columns:minmax(0,1fr)}.comp{padding:22px 18px;border-radius:20px}.comp-top h3{font-size:25px}section.s{padding:52px 0}.s-body>p{font-size:16.5px}.src{grid-template-columns:minmax(0,1fr)}.take{flex-direction:column;gap:6px}.back{padding:0 14px}}
+
+/* embedded Google Doc */
+.doc-sec{padding-top:56px}
+.doc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.doc-head h2{font-weight:700;font-size:clamp(32px,3.6vw,48px);line-height:1.05;letter-spacing:-.015em;margin-top:14px}
+.doc-frame{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 30px 70px rgba(0,0,0,.45);height:min(1400px,calc(100vh - 120px));min-height:640px}
+.doc-frame iframe{position:relative;z-index:1;display:block;width:100%;height:100%;border:0;background:#fff}
+.doc-fallback{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;background:#151311;color:var(--soft);text-align:center}
+.doc-fallback p{margin:0}
+@media (max-width:640px){.doc-frame{border-radius:16px;height:calc(100vh - 110px);min-height:520px}.doc-head{align-items:flex-start}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -173,159 +183,21 @@ footer .label{color:var(--muted)}
   </div>
 </div></section>
 
-<section class="s"><div class="wrap s-head">
-  <div data-r><div class="eyebrow label">01 — The concept</div><h2>Sound, turned into <em>signals</em><span class="dot">.</span></h2></div>
-  <div class="s-body">
-    <div class="concept" data-r>
-      <div class="card big"><span class="label">What we're building</span><h3>A phone app plus a wearable</h3><p>It listens for important sounds and turns them into visuals and vibration alerts, using map integration and low- and high-frequency audio detection.</p>
-        <div class="chipline"><span>Map integration</span><span>Low + high frequency detection</span><span>Vibration alerts</span><span>Visual labels</span></div></div>
-      <div class="card"><span class="label">Who it's for</span><h3>People who are Deaf or hard of hearing</h3><p>Especially when they're out in the world: crossing streets, moving through transit stations and airports.</p></div>
-    </div>
-    <div class="cards" data-r>
-      <div class="card"><span class="label">Problem 01</span><h3>Crossing the street safely</h3><p>Including near quiet electric vehicles that are easy to miss.</p></div>
-      <div class="card"><span class="label">Problem 02</span><h3>Missed announcements</h3><p>Gate changes and updates at airports and on public transportation.</p></div>
-      <div class="card"><span class="label">Problem 03</span><h3>Missed alarms</h3><p>Alarms and other urgent sounds that need attention right away.</p></div>
-    </div>
+<section class="s doc-sec"><div class="wrap">
+  <div class="doc-head" data-r>
+    <div><div class="eyebrow label">The case study</div><h2>Competitor <em>analysis</em><span class="dot">.</span></h2></div>
+    <a class="back doc-open" href="https://docs.google.com/document/d/1SsWRAF65NSjvkJ9NssaDDwUpSeHGzOJjhUY3p-BH-vA/edit?usp=sharing" target="_blank" rel="noopener">Open in Google Docs ↗</a>
   </div>
-</div></section>
-
-<section class="s"><div class="wrap s-head">
-  <div data-r><div class="eyebrow label">02 — Research</div><h2>Three competitors, <em>one gap</em><span class="dot">.</span></h2></div>
-  <div class="s-body">
-    <p data-r>I analyzed three tools that help people notice sound at home, at work and in conversation: a hearing-aid app, a built-in phone feature and a haptic wearable. For each, I looked at platform, price, core features, strengths and weaknesses, then pulled out a takeaway for our app.</p>
-
-    <article class="comp" data-r>
-      <div class="comp-top"><div><span class="label">Competitor 01 · Hearing aid app</span><h3>Oticon Companion</h3><p>A free remote control for Oticon hearing aids. It helps people adjust what they hear, but it doesn't turn sounds into visual or haptic alerts.</p></div>
-        <div class="price"><b>Free</b>Requires Oticon hearing aids</div></div>
-      <div class="specs">
-        <div class="spec"><span class="label">Platform</span><span>iPhone, iPad, Android, plus Apple Watch control</span></div>
-        <div class="spec"><span class="label">Core features</span><span>Discreet volume and program controls, microphone fine-tuning, an equalizer on some models, and "find my hearing aids"</span></div>
-        <div class="spec"><span class="label">Care + accessories</span><span>Remote visits with an audiologist, usage data for fittings, TV Adapter and ConnectClip</span></div>
-      </div>
-      <div class="sw">
-        <div class="plus"><h4>Strengths</h4><ul><li>Polished, discreet design that helps reduce the stigma of hearing aids</li><li>Connects users to their audiologist through remote care</li><li>Control from Apple Watch, with step-by-step help and in-app notifications</li></ul></div>
-        <div class="minus"><h4>Weaknesses</h4><ul><li>Only works with Oticon hearing aids, which leaves out Deaf users who don't use them</li><li>Makes sound easier to hear but never turns it into visual or haptic alerts</li><li>No hazard detection, vehicle awareness or map-based alerts</li><li>Features depend on the hearing aid model and firmware</li><li>The App Store listing doesn't say which accessibility features it supports</li></ul></div>
-      </div>
-      <div class="take"><span class="label">Takeaway</span><p>Users can switch listening programs for different places. We could offer similar <b>modes</b>, like Street or Transit, that change which alerts and vibrations are active. Remote help from a professional is also worth considering.</p></div>
-    </article>
-
-    <article class="comp" data-r>
-      <div class="comp-top"><div><span class="label">Competitor 02 · Built-in feature</span><h3>Apple Sound Recognition</h3><p>Apple's built-in accessibility feature listens for set sounds and sends a notification and vibration to the iPhone or the wrist.</p></div>
-        <div class="price"><b>Free</b>Requires Apple hardware</div></div>
-      <div class="specs">
-        <div class="spec"><span class="label">Platform</span><span>iPhone and Apple Watch; newer watches can listen even without the iPhone nearby</span></div>
-        <div class="spec"><span class="label">Core features</span><span>15 preset sounds, including fire and smoke alarms, sirens, car horns, doorbells, glass breaking, crying babies and pets, plus custom-trained alarms and appliances</span></div>
-        <div class="spec"><span class="label">Alerts + privacy</span><span>A notification with a custom tone or haptic pattern for each sound; processing happens on the device</span></div>
-      </div>
-      <div class="sw">
-        <div class="plus"><h4>Strengths</h4><ul><li>Already on devices many people own</li><li>Delivers alerts to the wrist</li><li>Users choose a haptic pattern for each sound</li><li>Custom sound training handles unusual alarms</li></ul></div>
-        <div class="minus"><h4>Weaknesses</h4><ul><li>Apple says not to rely on it in high-risk or emergency situations, or for navigation</li><li>Only 15 preset sound types</li><li>No direction or distance for a sound</li><li>Watch-only listening needs newer models</li><li>Flags that an announcement is happening, but not what it says</li></ul></div>
-      </div>
-      <div class="take"><span class="label">Takeaway</span><p>Apple falls short exactly where safety matters most: navigation and high-risk moments. Building for those situations gives our design real leverage.</p></div>
-    </article>
-
-    <article class="comp" data-r>
-      <div class="comp-top"><div><span class="label">Competitor 03 · Haptic wearable</span><h3>Neosensory Sound Awareness</h3><p>A wristband that turns surrounding sounds into vibration patterns on the skin. It's the closest to what we're building.</p></div>
-        <div class="price"><b>$999</b>One-time, or 24 interest-free payments of about $42</div></div>
-      <div class="specs">
-        <div class="spec"><span class="label">Platform</span><span>A dedicated wristband plus a companion app for iOS and Android</span></div>
-        <div class="spec"><span class="label">Core features</span><span>A microphone in the band; vibrations change with a sound's pitch and loudness, with adjustable sensitivity and strength</span></div>
-        <div class="spec"><span class="label">Origin + learning</span><span>Created by neuroscientist Dr. David Eagleman with the Deaf community in mind; users learn over time what each vibration means</span></div>
-      </div>
-      <div class="sw">
-        <div class="plus"><h4>Strengths</h4><ul><li>A true haptic wearable that works without looking at a screen</li><li>Splits sound by frequency, so low and high sounds feel different</li><li>Backed by research and marketed for workplace safety</li></ul></div>
-        <div class="minus"><h4>Weaknesses</h4><ul><li>Very expensive</li><li>You feel sounds, but they aren't labeled</li><li>Takes a lot of practice before patterns mean anything</li><li>No map or location awareness, and no announcement text</li><li>Another device to buy, charge and wear</li></ul></div>
-      </div>
-      <div class="take"><span class="label">Takeaway</span><p>Haptics work, but users need <b>meaning</b>, not just a vibration. Our app should pair every vibration pattern with a clear visual label on screen.</p></div>
-    </article>
-  </div>
-</div></section>
-
-<section class="s"><div class="wrap s-head">
-  <div data-r><div class="eyebrow label">03 — Side by side</div><h2>Where each one <em>stops</em><span class="dot">.</span></h2></div>
-  <div class="s-body">
-    <p data-r>Lining up the features made the gap obvious. Every competitor covers part of the problem; none covers safety out in the street.</p>
-    <div class="matrix-wrap" data-r><table class="matrix">
-      <thead><tr><th>Feature</th><th>Oticon Companion</th><th>Apple Sound Recognition</th><th>Neosensory</th><th class="ours">Our app (planned)</th></tr></thead>
-      <tbody>
-        <tr><td>Visual, labeled alerts</td><td><span class="m n">–</span></td><td><span class="m y">✓</span></td><td><span class="m n">–</span><span class="mnote">Unlabeled</span></td><td class="ours"><span class="m y">✓</span></td></tr>
-        <tr><td>Haptic (vibration) alerts</td><td><span class="m n">–</span></td><td><span class="m y">✓</span><span class="mnote">Custom per sound</span></td><td><span class="m y">✓</span><span class="mnote">By frequency</span></td><td class="ours"><span class="m y">✓</span><span class="mnote">Paired with labels</span></td></tr>
-        <tr><td>Street and vehicle awareness</td><td><span class="m n">–</span></td><td><span class="m p">~</span><span class="mnote">Horns and sirens only</span></td><td><span class="m n">–</span></td><td class="ours"><span class="m y">✓</span><span class="mnote">Incl. quiet EVs</span></td></tr>
-        <tr><td>Direction and distance</td><td><span class="m n">–</span></td><td><span class="m n">–</span></td><td><span class="m n">–</span></td><td class="ours"><span class="m y">✓</span><span class="mnote">Proximity map</span></td></tr>
-        <tr><td>Announcement text</td><td><span class="m n">–</span></td><td><span class="m n">–</span><span class="mnote">Alert only</span></td><td><span class="m n">–</span></td><td class="ours"><span class="m y">✓</span></td></tr>
-        <tr><td>Built for navigation and safety</td><td><span class="m n">–</span></td><td><span class="m n">–</span><span class="mnote">Not for high-risk use</span></td><td><span class="m p">~</span><span class="mnote">Workplace</span></td><td class="ours"><span class="m y">✓</span></td></tr>
-        <tr><td>What you need</td><td><span class="mnote" style="margin:0">Oticon hearing aids</span></td><td><span class="mnote" style="margin:0">Apple devices</span></td><td><span class="mnote" style="margin:0">$999 wristband</span></td><td class="ours"><span class="mnote" style="margin:0;color:var(--value)">Any phone, optional wearable</span></td></tr>
-      </tbody></table></div>
-    <div class="legend" data-r><span><i class="m y">✓</i> Yes</span><span><i class="m p">~</i> Partly</span><span><i class="m n">–</i> No</span></div>
-  </div>
-</div></section>
-
-<section class="s"><div class="wrap s-head">
-  <div data-r><div class="eyebrow label">04 — Gaps &amp; opportunities</div><h2>What nobody <em>answers</em><span class="dot">.</span></h2></div>
-  <div class="s-body">
-    <p class="bigq" data-r>Every competitor answers <em>“what sound is happening?”</em> None answers <em>“where is the danger, and what should I do?”</em></p>
-    <div class="gaps" data-r>
-      <div class="card"><h3>Outdoor safety, not just home alerts</h3><p>Apple and Neosensory focus on home and work sounds, and Oticon on hearing-aid control. None is built for crossing the street.</p></div>
-      <div class="card"><h3>Electric vehicles</h3><p>Apple detects car horns, but no competitor warns you about a silent car moving toward you.</p></div>
-      <div class="card"><h3>Direction and distance</h3><p>No competitor shows where a hazard actually is. A map of nearby vehicles fills that gap.</p></div>
-      <div class="card"><h3>Announcements with meaning</h3><p>Competitors either capture everything or nothing. Our app can flag that an announcement is happening, then show its text.</p></div>
-      <div class="card"><h3>Labels plus haptics</h3><p>Neosensory proves frequency haptics work; Apple proves labeled alerts work. Combining a vibration scale with a clear label is new.</p></div>
-      <div class="card"><h3>Price</h3><p>Oticon needs its hearing aids, Apple needs Apple devices and Neosensory costs about $1,000. A cross-platform app with an optional, affordable wearable sits in between.</p></div>
-    </div>
-  </div>
-</div></section>
-
-<section class="s"><div class="wrap s-head">
-  <div data-r><div class="eyebrow label">05 — Design implications</div><h2>What we’re <em>designing for</em><span class="dot">.</span></h2></div>
-  <div class="s-body">
-    <div class="impl">
-      <ol data-r>
-        <li><div><b>Lead with street safety</b><span>The vehicle-proximity map and crosswalk cues should lead the screens in our mid- and high-fidelity prototypes.</span></div></li>
-        <li><div><b>Pair every vibration with a label</b><span>For example, a strong rising vibration plus “Car approaching on the left.”</span></div></li>
-        <li><div><b>Let users customize haptics</b><span>Like Apple, with different patterns for vehicles, alarms and announcements.</span></div></li>
-        <li><div><b>Show announcement text</b><span>Not just an alert, but the announcement itself in high-contrast text.</span></div></li>
-        <li><div><b>Test with Deaf and hard-of-hearing users</b><span>Run an accessibility audit at each stage before high fidelity, and test with real users from the community.</span></div></li>
-      </ol>
-      <div class="demo" data-r>
-        <span class="label">Concept sketch · labeled alert</span>
-        <div class="phone"><div class="screen">
-          <div class="sbar"><span>9:41</span><span>Street mode</span></div>
-          <div class="mapbox" aria-hidden="true"><span class="xw"></span><span class="ring"></span><span class="car"></span><span class="me"></span></div>
-          <div class="alert"><div class="top"><span>Vehicle · high priority</span><span>Left</span></div><b>Car approaching on the left</b>
-            <div class="vib" aria-hidden="true"><i style="height:25%"></i><i style="height:40%"></i><i style="height:55%"></i><i style="height:70%"></i><i style="height:85%"></i><i style="height:100%"></i><i style="height:100%"></i></div>
-            <small>Strong rising vibration on your wrist</small></div>
-          <div class="ann"><span>Announcement · Terminal B</span>“Flight 482 to Chicago is now boarding at Gate B14.”</div>
-        </div></div>
-        <p class="cap">An illustration of the research recommendations: direction on a map, a labeled vibration and announcement text in one place. It isn't our final UI.</p>
-      </div>
-    </div>
-  </div>
-</div></section>
-
-<section class="s"><div class="wrap s-head">
-  <div data-r><div class="eyebrow label">06 — Sources</div><h2>Research <em>sources</em><span class="dot">.</span></h2></div>
-  <div class="s-body" data-r>
-    <ul class="src">
-      <li><a href="https://www.oticon.com/products/app" target="_blank" rel="noopener">Oticon Companion app – Oticon</a></li>
-      <li>Oticon Companion app for professionals – Oticon</li>
-      <li>Oticon Companion support – Oticon</li>
-      <li>Oticon Companion – App Store</li>
-      <li>Oticon Companion – HearingTracker</li>
-      <li>Oticon Companion features – James Paget University Hospitals (NHS)</li>
-      <li><a href="https://support.apple.com/guide/watch/use-sound-recognition-ay39m4y6riek/watchos" target="_blank" rel="noopener">Recognize sounds using Apple Watch – Apple Watch User Guide</a></li>
-      <li>About Audio Intelligence features on Apple Watch – Apple Support</li>
-      <li>Make Apple Watch listen for sounds like the doorbell – MacRumors</li>
-      <li><a href="https://eagleman.com/latest/neosensory-and-the-science-of-sensory-substitution/" target="_blank" rel="noopener">Neosensory and the science of sensory substitution – David Eagleman</a></li>
-      <li>Neosensory Sound Awareness</li>
-      <li>Neosensory for employers</li>
-    </ul>
-    <p class="note">AI was used to help find these sources.</p>
+  <div class="doc-frame" data-r>
+    <iframe src="https://docs.google.com/document/d/1SsWRAF65NSjvkJ9NssaDDwUpSeHGzOJjhUY3p-BH-vA/preview" title="Devonte Lodge, INST406 case study: competitor analysis (Google Doc)" loading="lazy" allowfullscreen></iframe>
+    <div class="doc-fallback"><p>The document can't be shown here.</p><a class="back" href="https://docs.google.com/document/d/1SsWRAF65NSjvkJ9NssaDDwUpSeHGzOJjhUY3p-BH-vA/edit?usp=sharing" target="_blank" rel="noopener">Open in Google Docs ↗</a></div>
   </div>
 </div></section>
 </main>
 
 <footer><div class="wrap"><a class="logo" href="../">Devonte Lodge</a><span class="label">INST406 · University of Maryland · 2026</span><a class="back" href="../#case-studies">← All work</a></div></footer>
 <script>
+if(/claude/i.test(location.hostname)){const f=document.querySelector('.doc-frame iframe'); if(f) f.remove();}
 (function(){const els=[...document.querySelectorAll('[data-r]')]; if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return}
   const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{rootMargin:'0px 0px -8% 0px'}); els.forEach(e=>io.observe(e));})();
 </script>
